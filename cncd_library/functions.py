@@ -1,3 +1,5 @@
+import pandas as pd
+import numpy as np
 def checkPhenoCode(dataframe,phenotype): 
     """ 
 
