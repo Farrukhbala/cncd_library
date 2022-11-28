@@ -1,5 +1,6 @@
 class CNCD:
-
+    def __init__(self):
+        return None
 
     def checkPhenoCode(self,dataframe,phenotype): 
         """ 
