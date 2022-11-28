@@ -18,6 +18,8 @@ Features:
 
 #### Demo of some of the features:
 ```python
+import cncd_library as cncd
+
 data = pd.read_csv(r'file_directory')
 
 #take phenotype coding list from googlesheet
