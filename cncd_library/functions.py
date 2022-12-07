@@ -26,11 +26,8 @@ def checkPhenoCode(dataframe,phenotype):
     incorrect_phenotypes = incorrect_phenotypes[['study_id','status','center_alpha']].copy()
     df = pd.merge(incorrect_phenotypes,phenotype,how='inner',on=['center_alpha'],suffixes=('', '_correct'))
     return(df[['study_id','status','center_alpha','disease_status','status_correct']])
-import pandas as pd
-import numpy as np
 
-
-
+#========================================================== Check Gender ====================================================
 def checkGender(dataframe,check = ''):
     """
     Checks gender and age with name and bound values
