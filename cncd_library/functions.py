@@ -41,8 +41,6 @@ def checkGender(dataframe,check = ''):
     returns dataframe (pandas dataframe)
 
     """
-
-    Returns:
     global gender_data,condition_male,condition_female
     if 'first_name' in list(dataframe.columns):
         bucket_gender_check = ['BIBI', 'MRS','BANO','W/O','D/O','MISS','MS','BB','S/O']
