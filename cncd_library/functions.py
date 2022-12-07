@@ -10,7 +10,7 @@ def checkPhenoCode(dataframe,phenotype):
     Parameters:
     dataframe (pandas dataframe): dataframe to be checked
 
-    phenotype (pandas dataframe): phenotype file
+    phenotype (pandas dataframe): take phenotype coding list from googlesheet
 
 
     """ 
