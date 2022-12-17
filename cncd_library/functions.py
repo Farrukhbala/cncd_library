@@ -93,6 +93,16 @@ def nafld_qc_status(dataframe):
 
 def nafld_check_women_history(dataframe):
 
+    """
+    This function checks NAFLD Women History disprencies in dataframes using phenotype files
+
+    Parameters:
+    dataframe (pandas dataframe): dataframe to be checked
+
+    
+
+    """
+
     nafld_wh_columns = ['study_id','name','gender','age','status','subject_menstrual_state','subject_mensturation_last_12_months','subject_age_stop_mensturation','subject_reason_stop_menstruation','use_hormone_replacement_therapy','htn_pregnancy','dm_pregnancy','premature_birth']
     male_with_fh = dataframe[dataframe['gender'] == 1].query('subject_menstrual_state > 0 or subject_mensturation_last_12_months > 0 or subject_age_stop_mensturation > 0 or subject_reason_stop_menstruation > 0 or use_hormone_replacement_therapy > 0 or htn_pregnancy > 0 or dm_pregnancy > 0 or premature_birth > 0')
     
