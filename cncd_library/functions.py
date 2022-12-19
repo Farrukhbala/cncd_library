@@ -78,19 +78,19 @@ def dm_qc_status(dataframe):
     return(status)
 
 
-def nafld_qc_status(dataframe):
+# def nafld_qc_status(dataframe):
     
-    """
-    This function checks NAFLD Fatty Liver Diesease status disprencies in dataframes using phenotype files
+#     """
+#     This function checks NAFLD Fatty Liver Diesease status disprencies in dataframes using phenotype files
 
-    Parameters:
-    dataframe (pandas dataframe): dataframe to be checked
+#     Parameters:
+#     dataframe (pandas dataframe): dataframe to be checked
 
 
-    """
-    status = dataframe.query('((status == 1 & (fibroscan_capscore_mean.isnull() & ultrasound_report.isnull())) | (status == 1 & diagnosed_fatty_liver_disease != 1) | (status == 0 & fibroscan_capscore_mean.notnull()) | (status == 0 & ultrasound_report.notnull()) | (status == 0 & (diagnosed_fatty_liver_disease != 0)))')[['study_id','status','fibroscan_capscore_mean','ultrasound_report','diagnosed_fatty_liver_disease']]
+#     """
+#     status = dataframe.query('((status == 1 & (fibroscan_capscore_mean.isnull() & ultrasound_report.isnull())) | (status == 1 & diagnosed_fatty_liver_disease != 1) | (status == 0 & fibroscan_capscore_mean.notnull()) | (status == 0 & ultrasound_report.notnull()) | (status == 0 & (diagnosed_fatty_liver_disease != 0)))')[['study_id','status','fibroscan_capscore_mean','ultrasound_report','diagnosed_fatty_liver_disease']]
     
-    return(status)
+#     return(status)
 
 def nafld_check_women_history(dataframe):
 
