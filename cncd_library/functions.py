@@ -108,3 +108,35 @@ def nafld_check_women_history(dataframe):
     male_with_fh = dataframe[dataframe['gender'] == 1].query('subject_menstrual_state > 0 or subject_mensturation_last_12_months > 0 or subject_age_stop_mensturation > 0 or subject_reason_stop_menstruation > 0 or use_hormone_replacement_therapy > 0 or htn_pregnancy > 0 or dm_pregnancy > 0 or premature_birth > 0')
         
     return(male_with_fh[nafld_wh_columns])
+
+def merge_to_master(master_dataframe: pd.DataFrame, corrections_df: pd.DataFrame):
+
+    """ 
+    This function takes in two dataframes, one is the master dataframe and the other is the corrections dataframe.
+    The corrections dataframe is merged to the master dataframe based on the study_id column.
+    The function returns the master dataframe with the corrections merged to it.
+
+    Parameters
+    ----------
+    master_dataframe : pd.DataFrame
+        The master dataframe to which the corrections will be merged.
+    corrections_df : pd.DataFrame
+        The corrections dataframe which will be merged to the master dataframe.
+    
+    """
+    
+    try:
+        master_dataframe.drop_duplicates(subset = "study_id", keep = "first", inplace = True)
+        corrections_df.drop("result", axis = "columns",inplace=True)
+        master_dataframe.set_index(["study_id"], inplace = True)
+        corrections_df.set_index(["study_id"], inplace = True)
+        master_dataframe.update(corrections_df)
+        master_dataframe.reset_index(inplace = True)
+        return master_dataframe
+    except:
+        master_dataframe.drop_duplicates(subset = "study_id", keep = "first", inplace = True)
+        master_dataframe.set_index(["study_id"], inplace = True)
+        corrections_df.set_index(["study_id"], inplace = True)
+        master_dataframe.update(corrections_df)
+        master_dataframe.reset_index(inplace = True)
+        return master_dataframe
