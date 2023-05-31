@@ -2,7 +2,7 @@
 # in stead of from ppack.functions import average
 import pandas as pd 
 import numpy as np
-from .functions import *
+from .functions import QC_Check
 
 
 
